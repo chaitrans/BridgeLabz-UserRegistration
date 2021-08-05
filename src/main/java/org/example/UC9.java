@@ -18,9 +18,8 @@ public class UC9 {
     }
 
     public static void emailValidate(String[] emails) {
-//        for (String email : emails) {
         for(int i = 0; i< emails.length; i++ ){
-            System.out.print(Pattern.matches("^[\\w+_-]+(?:\\.[\\w+_-]+)*[@][\\w]{1,}([.]{1}[a-z]{2,}){1,2}$", emails[i]) + " ");
+            System.out.print(Pattern.matches("^[\\w+-]+(?:\\.[\\w+-]+)*[@][\\w]{1,}([.]{1}[a-z]{2,}){1,2}$", emails[i]) + " ");
         }
     }
 }

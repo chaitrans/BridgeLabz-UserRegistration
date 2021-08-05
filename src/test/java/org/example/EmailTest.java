@@ -22,9 +22,9 @@ public class EmailTest {
     private boolean expectedResult;
     private ValidateEmail validateEmail;
 
-    public EmailTest(String email, boolean expextedResult) {
+    public EmailTest(String email, boolean expectedResult) {
         this.emailTest = email;
-        this.expectedResult = expextedResult;
+        this.expectedResult = expectedResult;
     }
 
     @Before
