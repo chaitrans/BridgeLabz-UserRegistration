@@ -13,23 +13,48 @@ public class UserRegistrationRegEx {
     private static final String PHONE_NUMBER = "^[\\d]{2}[\\s][\\d]{10}$";
     private static final String PASSWORD = "^(?=.*[A-Z])(?=.*[a-z])(?=[^!@#$%^&+=]*[!@#$%^&+=][^!@#$%^&+=]*$)(?=.*[0-9]).{8,}$";
 
-    public boolean firstNameValidate(String fName) {
-        return Pattern.matches(NAME, fName);
+    public boolean firstNameValidate(String fName) throws InvalidUserInputException {
+        boolean result = Pattern.matches(NAME, fName);
+        if (result){
+            return result;
+        } else{
+            throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_FIRST_NAME,"Invalid Firsrt Name");
+        }
     }
 
-    public boolean lastNameValidate(String lName) {
-        return Pattern.matches(NAME, lName);
+    public boolean lastNameValidate(String lName) throws InvalidUserInputException {
+        boolean result = Pattern.matches(NAME, lName);
+        if (result){
+            return result;
+        }else{
+            throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_LAST_NAME,"Invalid Last Name");
+        }
     }
 
-    public boolean emailValidate(String email) {
-        return Pattern.matches(EMAIL, email);
+    public boolean emailValidate(String email) throws InvalidUserInputException {
+       boolean result =  Pattern.matches(EMAIL, email);
+       if(result){
+           return result;
+       }else{
+           throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_EMAIL,"Invalid Email");
+       }
     }
 
-    public boolean phoneNumberValidate(String phNum) {
-        return Pattern.matches(PHONE_NUMBER, phNum);
+    public boolean phoneNumberValidate(String phNum) throws InvalidUserInputException{
+        boolean result = Pattern.matches(PHONE_NUMBER, phNum);
+        if(result){
+            return result;
+        }else{
+            throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_PHONE_NUMBER,"Invalid Phone Number");
+        }
     }
 
-    public boolean passwordValidate(String pw) {
-        return Pattern.matches(PASSWORD, pw);
+    public boolean passwordValidate(String pw) throws InvalidUserInputException{
+        boolean result = Pattern.matches(PASSWORD, pw);
+        if(result){
+            return result;
+        }else{
+            throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_PASSWORD,"Invalid Password");
+        }
     }
 }
