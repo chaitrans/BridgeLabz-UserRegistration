@@ -13,48 +13,48 @@ public class UserRegistrationRegEx {
     private static final String PHONE_NUMBER = "^[\\d]{2}[\\s][\\d]{10}$";
     private static final String PASSWORD = "^(?=.*[A-Z])(?=.*[a-z])(?=[^!@#$%^&+=]*[!@#$%^&+=][^!@#$%^&+=]*$)(?=.*[0-9]).{8,}$";
 
-    public boolean firstNameValidate(String fName) throws InvalidUserInputException {
+    UserRegistrationInterface firstNameValidate = fName -> {
         boolean result = Pattern.matches(NAME, fName);
         if (result){
             return result;
         } else{
             throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_FIRST_NAME,"Invalid Firsrt Name");
         }
-    }
+    };
 
-    public boolean lastNameValidate(String lName) throws InvalidUserInputException {
+    UserRegistrationInterface lastNameValidate = lName -> {
         boolean result = Pattern.matches(NAME, lName);
         if (result){
             return result;
         }else{
             throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_LAST_NAME,"Invalid Last Name");
         }
-    }
+    };
 
-    public boolean emailValidate(String email) throws InvalidUserInputException {
+    UserRegistrationInterface emailValidate = email -> {
        boolean result =  Pattern.matches(EMAIL, email);
        if(result){
            return result;
        }else{
            throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_EMAIL,"Invalid Email");
        }
-    }
+    };
 
-    public boolean phoneNumberValidate(String phNum) throws InvalidUserInputException{
+    UserRegistrationInterface phoneNumberValidate = phNum -> {
         boolean result = Pattern.matches(PHONE_NUMBER, phNum);
         if(result){
             return result;
         }else{
             throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_PHONE_NUMBER,"Invalid Phone Number");
         }
-    }
+    };
 
-    public boolean passwordValidate(String pw) throws InvalidUserInputException{
+    UserRegistrationInterface passwordValidate = pw -> {
         boolean result = Pattern.matches(PASSWORD, pw);
         if(result){
             return result;
         }else{
             throw new InvalidUserInputException(InvalidUserInputException.ExceptionType.INVALID_PASSWORD,"Invalid Password");
         }
-    }
+    };
 }
